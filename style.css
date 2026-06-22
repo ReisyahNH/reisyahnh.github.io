@@ -734,3 +734,29 @@ padding:80px 7%;
 }
 
 }
+
+.gallery-slider{
+
+display:flex;
+
+gap:20px;
+
+overflow-x:auto;
+
+scroll-behavior:smooth;
+
+scrollbar-width:none;
+
+}
+
+.gallery-slider::-webkit-scrollbar{
+display:none;
+}
+
+.gallery-slider img{
+
+width:350px;
+
+flex-shrink:0;
+
+}
