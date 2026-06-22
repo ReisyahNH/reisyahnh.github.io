@@ -1,0 +1,46 @@
+body{
+    background:#0f172a;
+    color:white;
+    font-family:Arial;
+    margin:0;
+}
+
+header{
+    text-align:center;
+    padding:80px;
+}
+
+h2{
+    color:#38bdf8;
+}
+
+section{
+    padding:30px;
+}
+
+.skill{
+    display:inline-block;
+    background:#1e293b;
+    padding:10px 20px;
+    margin:5px;
+    border-radius:15px;
+}
+
+.card{
+    background:#1e293b;
+    width:300px;
+    padding:20px;
+    border-radius:20px;
+    margin:20px;
+}
+
+.card img{
+    width:100%;
+    border-radius:15px;
+}
+
+.gallery img{
+    width:300px;
+    border-radius:20px;
+    margin:10px;
+}
