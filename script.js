@@ -116,3 +116,53 @@ behavior:"smooth"
 });
 
 });
+
+// PROJECT SLIDER
+
+const projectSlider =
+document.querySelector(".project-slider");
+
+document.querySelector(".next")
+.addEventListener("click",()=>{
+
+projectSlider.scrollBy({
+left:400,
+behavior:"smooth"
+});
+
+});
+
+document.querySelector(".prev")
+.addEventListener("click",()=>{
+
+projectSlider.scrollBy({
+left:-400,
+behavior:"smooth"
+});
+
+});
+
+// GALLERY SLIDER
+
+const gallerySlider =
+document.querySelector(".gallery-slider");
+
+document.querySelector(".gallery-next")
+.addEventListener("click",()=>{
+
+gallerySlider.scrollBy({
+left:400,
+behavior:"smooth"
+});
+
+});
+
+document.querySelector(".gallery-prev")
+.addEventListener("click",()=>{
+
+gallerySlider.scrollBy({
+left:-400,
+behavior:"smooth"
+});
+
+});
