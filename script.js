@@ -1,4 +1,3 @@
-// THEME TOGGLE
 const themeBtn = document.getElementById("themeBtn");
 
 themeBtn.addEventListener("click", () => {
@@ -13,7 +12,6 @@ if (localStorage.getItem("theme") === "light") {
   themeBtn.innerHTML = "☀️";
 }
 
-// SCROLL FADE ANIMATION
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add("show");
@@ -22,7 +20,6 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".fade").forEach(el => observer.observe(el));
 
-// PROJECT SLIDER
 const projectSlider = document.querySelector(".project-slider");
 
 document.querySelector(".next").addEventListener("click", () => {
@@ -32,7 +29,6 @@ document.querySelector(".prev").addEventListener("click", () => {
   projectSlider.scrollBy({ left: -360, behavior: "smooth" });
 });
 
-// GALLERY SLIDER
 const gallerySlider = document.querySelector(".gallery-slider");
 
 document.querySelector(".gallery-next").addEventListener("click", () => {
