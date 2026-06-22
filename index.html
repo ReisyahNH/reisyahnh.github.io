@@ -3,219 +3,581 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Portfolio Reisyah</title>
+<style>
+:root{
+  --blue:#8ecae6;
+  --matcha:#a8ddb5;
+  --bg1:#0f172a;
+  --bg2:#16213e;
+  --card:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.12);
+  --text:#f8fafc;
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
 
-<link rel="stylesheet" href="style.css">
+body{
+  font-family:'Segoe UI',sans-serif;
+  background: linear-gradient(135deg,#0f172a,#16213e,#183153);
+  color:var(--text);
+  overflow-x:hidden;
+  transition:.4s;
+}
 
+body::before{
+  content:"";
+  position:fixed;
+  top:-200px; left:-200px;
+  width:500px; height:500px;
+  background:var(--blue);
+  filter:blur(180px);
+  opacity:.15;
+  z-index:-1;
+}
+body::after{
+  content:"";
+  position:fixed;
+  right:-200px; bottom:-200px;
+  width:500px; height:500px;
+  background:var(--matcha);
+  filter:blur(180px);
+  opacity:.15;
+  z-index:-1;
+}
+
+/* LIGHT MODE */
+body.light{ background:#f4f8fb; color:#1e293b; }
+body.light .navbar{ background:rgba(255,255,255,.9); border:1px solid rgba(0,0,0,.08); }
+body.light .nav-links a{ color:#1e293b; }
+body.light .logo{ color:#2f80ed; }
+body.light .project-card,
+body.light .service,
+body.light .skill,
+body.light .timeline-item{ background:white; color:#1e293b; }
+body.light .project-card p{ color:#475569; }
+body.light .timeline-item p{ color:#64748b; }
+body.light .gallery-placeholder{ background:#e2e8f0; color:#64748b; }
+
+/* NAVBAR */
+.navbar{
+  position:fixed;
+  top:20px; left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:60px;
+  z-index:999;
+}
+.logo{ font-size:1.5rem; font-weight:700; color:var(--blue); }
+.nav-links{ display:flex; gap:25px; list-style:none; }
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  position:relative;
+  transition:.3s;
+}
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  bottom:-5px; left:0;
+  width:0%; height:2px;
+  background:var(--matcha);
+  transition:.3s;
+}
+.nav-links a:hover::after{ width:100%; }
+.nav-links a:hover{ color:var(--matcha); }
+
+#themeBtn{
+  width:50px; height:50px;
+  border:none; border-radius:50%;
+  cursor:pointer; font-size:20px;
+  background:linear-gradient(135deg,var(--blue),var(--matcha));
+  box-shadow:0 0 20px rgba(168,221,181,.4);
+  transition:.4s;
+}
+#themeBtn:hover{ transform:rotate(180deg) scale(1.1); }
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:100px 20px;
+}
+.profile{
+  width:220px; height:220px;
+  object-fit:cover;
+  border-radius:50%;
+  border:5px solid var(--blue);
+  box-shadow:0 0 40px rgba(142,202,230,.4);
+  animation:float 4s ease-in-out infinite;
+  background:var(--card);
+}
+@keyframes float{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-15px); }
+  100%{ transform:translateY(0); }
+}
+.hero h1{
+  font-size:4rem;
+  margin-top:25px;
+  background:linear-gradient(90deg,var(--blue),var(--matcha));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{ font-size:1.2rem; margin-top:10px; opacity:.9; }
+.btn{
+  margin-top:25px;
+  display:inline-block;
+  padding:15px 25px;
+  border-radius:15px;
+  background:linear-gradient(135deg,var(--blue),var(--matcha));
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+.btn:hover{ transform:translateY(-5px); }
+
+/* SECTION */
+section{ padding:100px 10%; }
+h2{ font-size:2.2rem; margin-bottom:30px; color:var(--blue); }
+
+/* SKILLS */
+.skills{ display:flex; flex-wrap:wrap; gap:15px; margin-bottom:30px; }
+.skill{
+  background:var(--card);
+  backdrop-filter:blur(10px);
+  padding:14px 22px;
+  border-radius:15px;
+  border:1px solid var(--border);
+  transition:.3s;
+}
+.skill:hover{ transform:translateY(-5px); }
+
+/* TIMELINE */
+.timeline{ border-left:3px solid var(--blue); padding-left:30px; }
+.timeline-item{
+  background:var(--card);
+  padding:20px;
+  margin-bottom:25px;
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+}
+.timeline-item p{ opacity:.7; margin-top:5px; }
+
+/* SLIDER WRAPPER */
+.slider-container{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+/* PROJECT SLIDER */
+.project-slider{
+  display:flex;
+  gap:25px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  width:100%;
+  padding:10px 5px 20px;
+  scrollbar-width:none;
+}
+.project-slider::-webkit-scrollbar{ display:none; }
+
+.project-card{
+  min-width:320px;
+  max-width:320px;
+  flex-shrink:0;
+  background:var(--card);
+  backdrop-filter:blur(15px);
+  border:1px solid var(--border);
+  border-radius:25px;
+  overflow:hidden;
+  transition:.4s;
+}
+.project-card:hover{
+  transform:translateY(-12px) scale(1.02);
+  box-shadow:0 20px 50px rgba(142,202,230,.25);
+}
+
+/* Placeholder for missing images */
+.card-img-wrap{
+  width:100%;
+  height:200px;
+  overflow:hidden;
+  background:rgba(142,202,230,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.card-img-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.card-img-wrap img[src=""],
+.card-img-wrap img:not([src]){
+  display:none;
+}
+.img-fallback{
+  font-size:3rem;
+  opacity:.4;
+}
+
+.project-card h3{ padding:0 20px; margin-top:15px; font-size:1.1rem; }
+.project-card p{ padding:0 20px; margin-top:8px; opacity:.7; font-size:.9rem; }
+
+.project-card .detail-btn{
+  display:inline-block;
+  margin:18px 20px;
+  padding:10px 20px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--blue),var(--matcha));
+  color:white;
+  font-size:.9rem;
+  font-weight:600;
+  transition:.3s;
+}
+.project-card .detail-btn:hover{ transform:translateY(-3px); opacity:.9; }
+
+/* GALLERY SLIDER */
+.gallery-slider{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  width:100%;
+  padding:10px 5px 20px;
+  scrollbar-width:none;
+}
+.gallery-slider::-webkit-scrollbar{ display:none; }
+
+.gallery-item{
+  min-width:320px;
+  height:220px;
+  flex-shrink:0;
+  border-radius:20px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.4s;
+  background:rgba(142,202,230,.08);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.gallery-item:hover{ transform:scale(1.04); box-shadow:0 10px 30px rgba(142,202,230,.2); }
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.gallery-placeholder{
+  font-size:3rem;
+  opacity:.35;
+}
+
+/* SLIDER BUTTONS */
+.slider-btn,
+.gallery-prev,
+.gallery-next{
+  width:48px; height:48px;
+  border:none; border-radius:50%;
+  cursor:pointer; font-size:20px;
+  background:linear-gradient(135deg,var(--blue),var(--matcha));
+  color:white;
+  flex-shrink:0;
+  transition:.3s;
+}
+.slider-btn:hover,
+.gallery-prev:hover,
+.gallery-next:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 15px rgba(142,202,230,.4);
+}
+
+/* SERVICES */
+.service-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+  margin-bottom:40px;
+}
+.service{
+  background:var(--card);
+  padding:25px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  border:1px solid var(--border);
+  transition:.3s;
+}
+.service:hover{ transform:translateY(-5px); }
+.service h3{ margin-bottom:8px; }
+.service p{ opacity:.7; }
+
+/* CONTACT */
+.contact-links{ display:flex; flex-wrap:wrap; gap:12px; }
+.contact-btn{
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--blue),var(--matcha));
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+.contact-btn:hover{ transform:translateY(-5px); box-shadow:0 10px 25px rgba(142,202,230,.3); }
+
+/* ANIMATION */
+.fade{ opacity:0; transform:translateY(40px); transition:1s; }
+.fade.show{ opacity:1; transform:translateY(0); }
+
+/* MOBILE */
+@media(max-width:768px){
+  .navbar{ flex-direction:column; gap:15px; border-radius:30px; }
+  .nav-links{ flex-wrap:wrap; justify-content:center; gap:15px; }
+  .hero h1{ font-size:2.5rem; }
+  .profile{ width:170px; height:170px; }
+  section{ padding:80px 7%; }
+  .project-card{ min-width:280px; max-width:280px; }
+  .gallery-item{ min-width:260px; }
+}
+</style>
 </head>
 <body>
 
 <nav class="navbar">
-
-<div class="logo">ReisyahNHaniye</div>
-
-<ul class="nav-links">
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#gallery">Gallery</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
-<button id="themeBtn">🌙</button>
-
+  <div class="logo">ReisyahNHaniye</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button id="themeBtn">🌙</button>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-
-<img src="images/profile.jpg" class="profile">
-
-<h1>Reisyah Haniye</h1>
-
-<p>Game Developer • 3D Artist</p>
-
-<a href="#" class="btn">Download CV</a>
-
+  <img src="images/profile.jpg" class="profile" alt="Profile" onerror="this.style.background='rgba(142,202,230,0.15)'">
+  <h1>Reisyah Haniye</h1>
+  <p>Game Developer • 3D Artist</p>
+  <a href="#" class="btn">Download CV</a>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="fade">
-
-<h2>About Me</h2>
-
-<p>
-Lorem ipsum dolor sit amet consectetur adipisicing elit.
-Unity Developer dan 3D Artist yang suka membuat game.
-</p>
-
+  <h2>About Me</h2>
+  <p>Unity Developer dan 3D Artist yang suka membuat game. Berpengalaman dalam pengembangan game VR, mobile, dan Game Jam.</p>
 </section>
 
+<!-- SKILLS -->
 <section id="skills" class="fade">
-
-<h2>Hard Skills</h2>
-
-<div class="skills">
-
-<div class="skill">Unity</div>
-<div class="skill">C#</div>
-<div class="skill">Blender</div>
-<div class="skill">Kotlin</div>
-<div class="skill">Git</div>
-
-</div>
-
-<h2>Soft Skills</h2>
-
-<div class="skills">
-
-<div class="skill">Leadership</div>
-<div class="skill">Teamwork</div>
-<div class="skill">Communication</div>
-<div class="skill">Problem Solving</div>
-
-</div>
-
+  <h2>Hard Skills</h2>
+  <div class="skills">
+    <div class="skill">Unity</div>
+    <div class="skill">C#</div>
+    <div class="skill">Blender</div>
+    <div class="skill">Kotlin</div>
+    <div class="skill">Git</div>
+  </div>
+  <h2>Soft Skills</h2>
+  <div class="skills">
+    <div class="skill">Leadership</div>
+    <div class="skill">Teamwork</div>
+    <div class="skill">Communication</div>
+    <div class="skill">Problem Solving</div>
+  </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section id="experience" class="fade">
-
-<h2>Experience</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<h3>Juara 1 Lomba Game</h3>
-<p>2025</p>
-</div>
-
-<div class="timeline-item">
-<h3>Magang Developer</h3>
-<p>2026</p>
-</div>
-
-<div class="timeline-item">
-<h3>Freelance Unity</h3>
-<p>2026</p>
-</div>
-
-</div>
-
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Juara 1 Lomba Game</h3>
+      <p>2025</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Magang Developer</h3>
+      <p>2026</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Freelance Unity</h3>
+      <p>2026</p>
+    </div>
+  </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects" class="fade">
+  <h2>Game Projects</h2>
+  <div class="slider-container">
+    <button class="slider-btn prev">❮</button>
+    <div class="project-slider">
 
-<h2>Game Projects</h2>
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="images/game1.png" alt="Urip Iku Urup" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-fallback" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;">🎮</div>
+        </div>
+        <h3>Urip Iku Urup</h3>
+        <p>VR Horror Game</p>
+        <button onclick="location.href='games/uripikuurup.html'" class="detail-btn">Detail</button>
+      </div>
 
-<div class="slider-container">
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="images/game2.png" alt="Before Tomorrow" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-fallback" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;">🎮</div>
+        </div>
+        <h3>Before Tomorrow</h3>
+        <p>Game Jam Project</p>
+        <button onclick="location.href='games/beforetomorrow.html'" class="detail-btn">Detail</button>
+      </div>
 
-<button class="slider-btn prev">❮</button>
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="images/game3.png" alt="Project 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-fallback" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;">🎮</div>
+        </div>
+        <h3>Project 3</h3>
+        <p>Action Game</p>
+        <button onclick="location.href='games/project3.html'" class="detail-btn">Detail</button>
+      </div>
 
-<div class="project-slider">
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="images/game4.png" alt="Project 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-fallback" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;">🎮</div>
+        </div>
+        <h3>Project 4</h3>
+        <p>Adventure Game</p>
+        <button onclick="location.href='games/project4.html'" class="detail-btn">Detail</button>
+      </div>
 
-<div class="project-card">
-<img src="images/game1.png">
-<h3>Urip Iku Urup</h3>
-<p>VR Horror Game</p>
-<a href="games/uripikuurup.html">
-<button>Detail</button>
-</a>
-</div>
+      <div class="project-card">
+        <div class="card-img-wrap">
+          <img src="images/game5.png" alt="Project 5" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="img-fallback" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;">🎮</div>
+        </div>
+        <h3>Project 5</h3>
+        <p>Mobile Game</p>
+        <button onclick="location.href='games/project5.html'" class="detail-btn">Detail</button>
+      </div>
 
-<div class="project-card">
-<img src="images/game2.png">
-<h3>Before Tomorrow</h3>
-<p>Game Jam Project</p>
-<a href="games/beforetomorrow.html">
-<button>Detail</button>
-</a>
-</div>
-
-<div class="project-card">
-<img src="images/game3.png">
-<h3>Project 3</h3>
-<p>Action Game</p>
-<a href="games/project3.html">
-<button>Detail</button>
-</a>
-</div>
-
-<div class="project-card">
-<img src="images/game4.png">
-<h3>Project 4</h3>
-<p>Adventure Game</p>
-<a href="games/project4.html">
-<button>Detail</button>
-</a>
-</div>
-
-<div class="project-card">
-<img src="images/game5.png">
-<h3>Project 5</h3>
-<p>Mobile Game</p>
-<a href="games/project5.html">
-<button>Detail</button>
-</a>
-</div>
-
-</div>
-
-<button class="slider-btn next">❯</button>
-
-</div>
-
+    </div>
+    <button class="slider-btn next">❯</button>
+  </div>
 </section>
 
+<!-- GALLERY -->
 <section id="gallery" class="fade">
+  <h2>Blender Gallery</h2>
+  <div class="slider-container">
+    <button class="gallery-prev">❮</button>
+    <div class="gallery-slider">
 
-<h2>Blender Gallery</h2>
+      <div class="gallery-item">
+        <img src="images/blender1.png" alt="Blender 1" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="gallery-placeholder" style="display:none;">🎨</span>
+      </div>
+      <div class="gallery-item">
+        <img src="images/blender2.png" alt="Blender 2" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="gallery-placeholder" style="display:none;">🎨</span>
+      </div>
+      <div class="gallery-item">
+        <img src="images/blender3.png" alt="Blender 3" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="gallery-placeholder" style="display:none;">🎨</span>
+      </div>
+      <div class="gallery-item">
+        <img src="images/blender4.png" alt="Blender 4" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="gallery-placeholder" style="display:none;">🎨</span>
+      </div>
 
-<div class="slider-container">
-
-<button class="gallery-prev">❮</button>
-
-<div class="gallery-slider">
-
-<img src="images/blender1.png">
-<img src="images/blender2.png">
-<img src="images/blender3.png">
-<img src="images/blender4.png">
-
-</div>
-
-<button class="gallery-next">❯</button>
-
-</div>
-
+    </div>
+    <button class="gallery-next">❯</button>
+  </div>
 </section>
 
+<!-- CONTACT / SERVICES -->
 <section id="contact" class="fade">
-
-<h2>Freelance Services</h2>
-
-<div class="service-container">
-
-<div class="service">
-<h3>Unity Development</h3>
-<p>Gameplay, UI, VR, Mobile</p>
-</div>
-
-<div class="service">
-<h3>3D Modeling</h3>
-<p>Character, Props, Environment</p>
-</div>
-
-</div>
-
-<h2>Contact</h2>
-
-<a href="mailto:email@gmail.com" class="contact-btn">Email</a>
-
-<a href="https://instagram.com" class="contact-btn">Instagram</a>
-
+  <h2>Freelance Services</h2>
+  <div class="service-container">
+    <div class="service">
+      <h3>Unity Development</h3>
+      <p>Gameplay, UI, VR, Mobile</p>
+    </div>
+    <div class="service">
+      <h3>3D Modeling</h3>
+      <p>Character, Props, Environment</p>
+    </div>
+  </div>
+  <h2>Contact</h2>
+  <div class="contact-links">
+    <a href="mailto:email@gmail.com" class="contact-btn">📧 Email</a>
+    <a href="https://instagram.com" class="contact-btn" target="_blank">📸 Instagram</a>
+  </div>
 </section>
 
-<script src="script.js"></script>
+<script>
+// THEME
+const themeBtn = document.getElementById("themeBtn");
+themeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+  const isLight = document.body.classList.contains("light");
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+  themeBtn.innerHTML = isLight ? "☀️" : "🌙";
+});
+if(localStorage.getItem("theme") === "light"){
+  document.body.classList.add("light");
+  themeBtn.innerHTML = "☀️";
+}
 
+// SCROLL FADE
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add("show");
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll(".fade").forEach(el => observer.observe(el));
+
+// PROJECT SLIDER
+const projectSlider = document.querySelector(".project-slider");
+document.querySelector(".next").addEventListener("click", () => {
+  projectSlider.scrollBy({ left: 360, behavior: "smooth" });
+});
+document.querySelector(".prev").addEventListener("click", () => {
+  projectSlider.scrollBy({ left: -360, behavior: "smooth" });
+});
+
+// GALLERY SLIDER
+const gallerySlider = document.querySelector(".gallery-slider");
+document.querySelector(".gallery-next").addEventListener("click", () => {
+  gallerySlider.scrollBy({ left: 360, behavior: "smooth" });
+});
+document.querySelector(".gallery-prev").addEventListener("click", () => {
+  gallerySlider.scrollBy({ left: -360, behavior: "smooth" });
+});
+</script>
 </body>
 </html>
