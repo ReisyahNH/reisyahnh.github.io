@@ -1,4 +1,3 @@
-```javascript
 const btn = document.getElementById("themeBtn");
 
 btn.onclick = () => {
