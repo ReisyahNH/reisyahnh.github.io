@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Urip Iku Urup – Detail</title>
+  <title>Before Tomorrow – Detail</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    /* DETAIL PAGE SPECIFIC */
     .detail-hero {
       min-height: 60vh;
       display: flex;
@@ -71,7 +70,6 @@
       opacity: .75;
     }
 
-    /* SCREENSHOT SLIDER */
     .screenshots-section {
       padding: 60px 10% 20px;
     }
@@ -141,7 +139,6 @@
       line-height: 1;
     }
 
-    /* CONTENT GRID */
     .detail-content {
       padding: 20px 10% 80px;
       display: grid;
@@ -180,7 +177,6 @@
     }
     .feature-list li span.icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
 
-    /* SIDEBAR */
     .sidebar {
       display: flex;
       flex-direction: column;
@@ -239,7 +235,6 @@
     }
     .play-btn.secondary:hover { border-color: var(--blue); }
 
-    /* LIGHT MODE */
     body.light .screenshot-item,
     body.light .info-card,
     body.light .feature-list li { background: white; color: #1e293b; }
@@ -273,18 +268,16 @@
   <button id="themeBtn">🌙</button>
 </nav>
 
-<!-- HERO -->
 <div class="detail-hero">
   <div class="detail-hero-bg"></div>
   <div class="detail-hero-content">
     <a href="../index.html#projects" class="back-btn">← Back to Projects</a>
-    <div class="game-tag">VR Horror Game</div>
-    <h1>Urip Iku Urup</h1>
-    <p class="subtitle">Unity • VR • 2025</p>
+    <div class="game-tag">Narrative Psychological Puzzle 3D</div>
+    <h1>Before Tomorrow</h1>
+    <p class="subtitle">Unity • 3D • 2026</p>
   </div>
 </div>
 
-<!-- SCREENSHOTS -->
 <div class="screenshots-section">
   <h2>Screenshots</h2>
   <div class="screenshot-slider-wrap">
@@ -292,27 +285,27 @@
     <div class="screenshot-slider">
 
       <div class="screenshot-item" onclick="openLightbox('../images/game1.png')">
-        <img src="../images/game1.png" alt="Screenshot 1"
+        <img src="../images/ssp21.png" alt="Screenshot 1"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
       <div class="screenshot-item" onclick="openLightbox('../images/ss2.png')">
-        <img src="../images/ss2.png" alt="Screenshot 2"
+        <img src="../images/ssp22.png" alt="Screenshot 2"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
       <div class="screenshot-item" onclick="openLightbox('../images/ss3.png')">
-        <img src="../images/ss3.png" alt="Screenshot 3"
+        <img src="../images/ssp23.png" alt="Screenshot 3"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
       <div class="screenshot-item" onclick="openLightbox('../images/ss4.png')">
-        <img src="../images/ss4.png" alt="Screenshot 4"
+        <img src="../images/ssp24.png" alt="Screenshot 4"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
       <div class="screenshot-item" onclick="openLightbox('../images/ss5.png')">
-        <img src="../images/ss5.png" alt="Screenshot 5"
+        <img src="../images/ssp25.png" alt="Screenshot 5"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
@@ -322,24 +315,25 @@
   </div>
 </div>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
   <img id="lightbox-img" src="" alt="Screenshot">
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="detail-content">
 
-  <!-- LEFT: Overview + Features -->
   <div>
     <div class="overview">
       <h2>Game Overview</h2>
       <p>
-        Urip Iku Urup adalah game horror VR yang terinspirasi dari budaya dan kepercayaan Jawa.
-        Pemain akan menjelajahi rumah tua yang penuh misteri, memecahkan teka-teki, dan menghadapi
-        entitas supernatural. Game ini dikembangkan menggunakan Unity dengan dukungan VR penuh,
-        memberikan pengalaman immersive yang mendebarkan.
+        Before Tomorrow adalah Narrative Psychological Puzzle berselimut visual 3D Chibi Stylized yang menampar realita manusia modern. Ini bukan sekadar game teka-teki, melainkan sebuah manifestasi visual dari burnout, depresi fungsional, dan hilangnya warna hidup akibat rutinitas yang robotik.
+        Kamu adalah robot bernyawa dalam siklus: bangun, kerja, tidur, ulang. Sampai akhirnya, takdir membawamu tersesat ke sebuah lorong surreal penuh pintu waktu. Setiap pintu adalah ruang isolasi emosimu sendiri ada taman bermain masa kecil yang kini sunyi, ada labirin jam dinding dari ekspektasi yang mencekik, dan ada cermin retak yang menyuarakan ketakutan terbesarmu.
+        Dengan memanipulasi objek dan menyelesaikan environmental puzzle di tiap ruangan, kamu tidak hanya mencari jalan keluar, tapi sedang memungut kembali kepingan jiwamu yang tercecer. Disajikan dengan estetika visual yang kontras karakter yang imut di tengah dunia yang melankolis, Before Tomorrow adalah sebuah perjalanan kontemplatif. Karena sebelum hari esok yang monoton itu datang lagi, kamu harus menyelamatkan dirimu yang sekarang.
+
+        Anggota:
+        M. Achvatar Fadliansyah (Programmer & Designer)
+        M. Abdul Qadir Aljaylani (Game Artist)
+        Francesca Gemma Audrey S. (Programmer & Artist)
       </p>
     </div>
 
@@ -347,37 +341,31 @@
       <h2>Features</h2>
       <ul class="feature-list">
         <li>
-          <span class="icon">🥽</span>
-          <span>Full VR support – mendukung headset VR populer untuk pengalaman imersif penuh</span>
+          <span></span>
         </li>
         <li>
-          <span class="icon">👻</span>
-          <span>Dynamic horror AI – entitas yang bereaksi terhadap pergerakan dan suara pemain</span>
+          <span>Emotional Environmental Puzzles</span>
         </li>
         <li>
-          <span class="icon">🧩</span>
-          <span>Puzzle berbasis budaya Jawa – teka-teki unik yang terinspirasi dari tradisi lokal</span>
+          <span>Estetika Visual "Kontras Melankolis" (Chibi Stylized)</span>
         </li>
         <li>
-          <span class="icon">🔊</span>
-          <span>Spatial audio – suara 3D yang memperkuat atmosfer seram</span>
+          <span>Lorong Pintu Waktu Ruang Isolasi (Eksplorasi Naratif)</span>
         </li>
         <li>
-          <span class="icon">🌙</span>
-          <span>Cerita original berlatar malam hari di desa Jawa pedalaman</span>
+          <span>Simulasi Siklus Rutinitas Robotik</span>
         </li>
       </ul>
     </div>
   </div>
 
-  <!-- RIGHT: Sidebar -->
   <div class="sidebar">
 
     <div class="info-card">
       <h3>Game Info</h3>
       <div class="info-row">
-        <span class="label">Genre</span>
-        <span class="value">VR Horror</span>
+        <span class="label">Tema game</span>
+        <span class="value">Ruang dan Waktu</span>
       </div>
       <div class="info-row">
         <span class="label">Engine</span>
@@ -385,15 +373,15 @@
       </div>
       <div class="info-row">
         <span class="label">Platform</span>
-        <span class="value">PC VR</span>
+        <span class="value">PC </span>
       </div>
       <div class="info-row">
         <span class="label">Tahun</span>
-        <span class="value">2025</span>
+        <span class="value">2026</span>
       </div>
       <div class="info-row">
         <span class="label">Role</span>
-        <span class="value">Lead Developer</span>
+        <span class="value">Designer & Artist</span>
       </div>
     </div>
 
@@ -403,7 +391,6 @@
 
 <script src="../script.js"></script>
 <script>
-  // SCREENSHOT SLIDER
   const ssSlider = document.querySelector(".screenshot-slider");
   document.querySelector(".ss-next").addEventListener("click", () => {
     ssSlider.scrollBy({ left: 380, behavior: "smooth" });
@@ -412,7 +399,6 @@
     ssSlider.scrollBy({ left: -380, behavior: "smooth" });
   });
 
-  // LIGHTBOX
   function openLightbox(src) {
     document.getElementById("lightbox-img").src = src;
     document.getElementById("lightbox").classList.add("active");
