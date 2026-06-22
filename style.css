@@ -760,3 +760,94 @@ width:350px;
 flex-shrink:0;
 
 }
+
+/* PROJECT SLIDER */
+
+.slider-container{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.project-slider{
+display:flex;
+gap:25px;
+overflow-x:auto;
+scroll-behavior:smooth;
+width:100%;
+padding:10px;
+}
+
+.project-slider::-webkit-scrollbar{
+display:none;
+}
+
+.project-card{
+min-width:350px;
+max-width:350px;
+flex-shrink:0;
+}
+
+/* GALLERY SLIDER */
+
+.gallery-slider{
+display:flex;
+gap:20px;
+overflow-x:auto;
+scroll-behavior:smooth;
+width:100%;
+padding:10px;
+}
+
+.gallery-slider::-webkit-scrollbar{
+display:none;
+}
+
+.gallery-slider img{
+min-width:350px;
+height:220px;
+object-fit:cover;
+border-radius:20px;
+}
+
+/* BUTTON SLIDER */
+
+.slider-btn,
+.gallery-prev,
+.gallery-next{
+
+width:50px;
+height:50px;
+
+border:none;
+border-radius:50%;
+
+cursor:pointer;
+
+font-size:22px;
+
+background:linear-gradient(
+135deg,
+#8ecae6,
+#a8ddb5
+);
+
+color:white;
+
+flex-shrink:0;
+
+}
+
+/* LIGHT MODE FIX */
+
+body.light .navbar{
+background:white;
+}
+
+body.light .nav-links a{
+color:#1e293b;
+}
+
+body.light .logo{
+color:#2563eb;
+}
