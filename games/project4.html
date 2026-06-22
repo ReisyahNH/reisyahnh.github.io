@@ -1,1 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urip Iku Urup – Detail</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* DETAIL PAGE SPECIFIC */
+    .detail-hero {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 140px 10% 60px;
+      position: relative;
+      overflow: hidden;
+    }
 
+    .detail-hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('../images/game1.png') center/cover no-repeat;
+      filter: brightness(0.3) blur(3px);
+      z-index: 0;
+      transform: scale(1.05);
+    }
+
+    .detail-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 20px;
+      transition: .3s;
+      font-size: .95rem;
+    }
+    .back-btn:hover { transform: translateX(-5px); color: var(--matcha); }
+
+    .game-tag {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: rgba(142,202,230,.2);
+      border: 1px solid var(--blue);
+      color: var(--blue);
+      font-size: .8rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .detail-hero h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(90deg, var(--blue), var(--matcha));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .detail-hero .subtitle {
+      font-size: 1.1rem;
+      opacity: .75;
+    }
+
+    /* SCREENSHOT SLIDER */
+    .screenshots-section {
+      padding: 60px 10% 20px;
+    }
+
+    .screenshots-section h2 { margin-bottom: 20px; }
+
+    .screenshot-slider-wrap {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .screenshot-slider {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      padding: 10px 5px 15px;
+      width: 100%;
+    }
+    .screenshot-slider::-webkit-scrollbar { display: none; }
+
+    .screenshot-item {
+      min-width: 360px;
+      height: 220px;
+      flex-shrink: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: .3s;
+      background: rgba(142,202,230,.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .screenshot-item:hover { transform: scale(1.03); box-shadow: 0 10px 30px rgba(142,202,230,.2); }
+    .screenshot-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .screenshot-placeholder { font-size: 2.5rem; opacity: .3; }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.9);
+      z-index: 3000;
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 12px;
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+
+    /* CONTENT GRID */
+    .detail-content {
+      padding: 20px 10% 80px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .overview h2, .features h2 { margin-bottom: 15px; }
+
+    .overview p {
+      line-height: 1.8;
+      opacity: .85;
+      margin-bottom: 30px;
+    }
+
+    .features { margin-top: 10px; }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 18px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      line-height: 1.5;
+    }
+    .feature-list li span.icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* SIDEBAR */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: sticky;
+      top: 110px;
+    }
+
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+    }
+    .info-card h3 {
+      color: var(--blue);
+      margin-bottom: 16px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .9rem;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .label { opacity: .6; }
+    .info-row .value { font-weight: 600; }
+
+    .play-btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), var(--matcha));
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: .3s;
+    }
+    .play-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(142,202,230,.35); }
+
+    .play-btn.secondary {
+      background: var(--card);
+      border: 1px solid var(--border);
+      margin-top: 10px;
+    }
+    .play-btn.secondary:hover { border-color: var(--blue); }
+
+    /* LIGHT MODE */
+    body.light .screenshot-item,
+    body.light .info-card,
+    body.light .feature-list li { background: white; color: #1e293b; }
+    body.light .info-row { border-color: rgba(0,0,0,.08); }
+    body.light .play-btn.secondary { background: white; color: #1e293b; border-color: rgba(0,0,0,.12); }
+
+    @media(max-width:900px){
+      .detail-content { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .detail-hero h1 { font-size: 2.4rem; }
+      .screenshot-item { min-width: 280px; height: 180px; }
+    }
+    @media(max-width:600px){
+      .detail-hero { padding: 120px 7% 50px; }
+      .screenshots-section, .detail-content { padding-left: 7%; padding-right: 7%; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">ReisyahNHaniye</div>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#skills">Skills</a></li>
+    <li><a href="../index.html#experience">Experience</a></li>
+    <li><a href="../index.html#projects">Projects</a></li>
+    <li><a href="../index.html#gallery">Gallery</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <button id="themeBtn">🌙</button>
+</nav>
+
+<!-- HERO -->
+<div class="detail-hero">
+  <div class="detail-hero-bg"></div>
+  <div class="detail-hero-content">
+    <a href="../index.html#projects" class="back-btn">← Back to Projects</a>
+    <div class="game-tag">VR Horror Game</div>
+    <h1>Urip Iku Urup</h1>
+    <p class="subtitle">Unity • VR • 2025</p>
+  </div>
+</div>
+
+<!-- SCREENSHOTS -->
+<div class="screenshots-section">
+  <h2>Screenshots</h2>
+  <div class="screenshot-slider-wrap">
+    <button class="slider-btn ss-prev">❮</button>
+    <div class="screenshot-slider">
+
+      <div class="screenshot-item" onclick="openLightbox('../images/game1.png')">
+        <img src="../images/game1.png" alt="Screenshot 1"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="screenshot-placeholder" style="display:none">🎮</span>
+      </div>
+      <div class="screenshot-item" onclick="openLightbox('../images/ss2.png')">
+        <img src="../images/ss2.png" alt="Screenshot 2"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="screenshot-placeholder" style="display:none">🎮</span>
+      </div>
+      <div class="screenshot-item" onclick="openLightbox('../images/ss3.png')">
+        <img src="../images/ss3.png" alt="Screenshot 3"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="screenshot-placeholder" style="display:none">🎮</span>
+      </div>
+      <div class="screenshot-item" onclick="openLightbox('../images/ss4.png')">
+        <img src="../images/ss4.png" alt="Screenshot 4"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="screenshot-placeholder" style="display:none">🎮</span>
+      </div>
+      <div class="screenshot-item" onclick="openLightbox('../images/ss5.png')">
+        <img src="../images/ss5.png" alt="Screenshot 5"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="screenshot-placeholder" style="display:none">🎮</span>
+      </div>
+
+    </div>
+    <button class="slider-btn ss-next">❯</button>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="Screenshot">
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="detail-content">
+
+  <!-- LEFT: Overview + Features -->
+  <div>
+    <div class="overview">
+      <h2>Game Overview</h2>
+      <p>
+        Urip Iku Urup adalah game horror VR yang terinspirasi dari budaya dan kepercayaan Jawa.
+        Pemain akan menjelajahi rumah tua yang penuh misteri, memecahkan teka-teki, dan menghadapi
+        entitas supernatural. Game ini dikembangkan menggunakan Unity dengan dukungan VR penuh,
+        memberikan pengalaman immersive yang mendebarkan.
+      </p>
+    </div>
+
+    <div class="features">
+      <h2>Features</h2>
+      <ul class="feature-list">
+        <li>
+          <span class="icon">🥽</span>
+          <span>Full VR support – mendukung headset VR populer untuk pengalaman imersif penuh</span>
+        </li>
+        <li>
+          <span class="icon">👻</span>
+          <span>Dynamic horror AI – entitas yang bereaksi terhadap pergerakan dan suara pemain</span>
+        </li>
+        <li>
+          <span class="icon">🧩</span>
+          <span>Puzzle berbasis budaya Jawa – teka-teki unik yang terinspirasi dari tradisi lokal</span>
+        </li>
+        <li>
+          <span class="icon">🔊</span>
+          <span>Spatial audio – suara 3D yang memperkuat atmosfer seram</span>
+        </li>
+        <li>
+          <span class="icon">🌙</span>
+          <span>Cerita original berlatar malam hari di desa Jawa pedalaman</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RIGHT: Sidebar -->
+  <div class="sidebar">
+
+    <div class="info-card">
+      <h3>Game Info</h3>
+      <div class="info-row">
+        <span class="label">Genre</span>
+        <span class="value">VR Horror</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Engine</span>
+        <span class="value">Unity</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Platform</span>
+        <span class="value">PC VR</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Tahun</span>
+        <span class="value">2025</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Role</span>
+        <span class="value">Lead Developer</span>
+      </div>
+    </div>
+
+    <a href="https://reisyahnh.itch.io/before-tomorrow" target="_blank" class="play-btn">🎮 Main di Itch.io</a>
+  </div>
+</div>
+
+<script src="../script.js"></script>
+<script>
+  // SCREENSHOT SLIDER
+  const ssSlider = document.querySelector(".screenshot-slider");
+  document.querySelector(".ss-next").addEventListener("click", () => {
+    ssSlider.scrollBy({ left: 380, behavior: "smooth" });
+  });
+  document.querySelector(".ss-prev").addEventListener("click", () => {
+    ssSlider.scrollBy({ left: -380, behavior: "smooth" });
+  });
+
+  // LIGHTBOX
+  function openLightbox(src) {
+    document.getElementById("lightbox-img").src = src;
+    document.getElementById("lightbox").classList.add("active");
+  }
+  function closeLightbox() {
+    document.getElementById("lightbox").classList.remove("active");
+  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+</script>
+</body>
+</html>
