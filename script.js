@@ -45,4 +45,4 @@ document.querySelectorAll(".fade").forEach(el=>{
 observer.observe(el);
 
 });
-```
+
