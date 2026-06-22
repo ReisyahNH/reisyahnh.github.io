@@ -1,60 +1,285 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Portfolio Haniyee</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio Reisyah</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
-<header>
-    <h1>Reisyah NHaniye</h1>
-    <p>Game Developer • 3D Artist</p>
-</header>
+<nav class="navbar">
 
-<section>
-    <h2>About Me</h2>
-    <p>
-        Saya seorang Game Developer dan 3D Artist yang suka membuat game dan model 3D menggunakan Blender.
-    </p>
+<div class="logo">Haniyee</div>
+
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<button id="themeBtn">🌙</button>
+
+</nav>
+
+<section class="hero">
+
+<img src="images/profile.jpg" class="profile">
+
+<h1>Reisyah Haniye</h1>
+
+<p>Game Developer • 3D Artist</p>
+
+<a href="#" class="btn">Download CV</a>
+
 </section>
 
-<section>
-    <h2>Skills</h2>
+<section id="about" class="fade">
 
-    <div class="skill">Unity</div>
-    <div class="skill">C#</div>
-    <div class="skill">Blender</div>
-    <div class="skill">Kotlin</div>
+<h2>About Me</h2>
+
+<p>
+Lorem ipsum dolor sit amet consectetur adipisicing elit.
+Unity Developer dan 3D Artist yang suka membuat game.
+</p>
+
 </section>
 
-<section>
-    <h2>Game Projects</h2>
+<section id="skills" class="fade">
 
-    <div class="card">
-        <img src="images/game1.png">
-        <h3>Urip Iku Urup</h3>
-        <p>Game VR horpr yang dibuat dengan Unity.</p>
-    </div>
+<h2>Hard Skills</h2>
 
-    <div class="card">
-        <img src="images/game2.png">
-        <h3>Before tommorow</h3>
-        <p>Game 3d yang dikerjakan saat game jam.</p>
-    </div>
+<div class="skills">
+
+<div class="skill">Unity</div>
+<div class="skill">C#</div>
+<div class="skill">Blender</div>
+<div class="skill">Kotlin</div>
+<div class="skill">Git</div>
+
+</div>
+
+<h2>Soft Skills</h2>
+
+<div class="skills">
+
+<div class="skill">Leadership</div>
+<div class="skill">Teamwork</div>
+<div class="skill">Communication</div>
+<div class="skill">Problem Solving</div>
+
+</div>
+
 </section>
 
-<section>
-    <h2>3D Blender Projects</h2>
+<section id="experience" class="fade">
 
-    <div class="gallery">
-        <img src="images/blender1.png">
-        <img src="images/blender2.png">
-    </div>
+<h2>Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Juara 1 Lomba Game</h3>
+<p>2025</p>
+</div>
+
+<div class="timeline-item">
+<h3>Magang Developer</h3>
+<p>2026</p>
+</div>
+
+<div class="timeline-item">
+<h3>Freelance Unity</h3>
+<p>2026</p>
+</div>
+
+</div>
+
 </section>
 
-<footer>
-    <p>© 2026 Haniyee</p>
-</footer>
+<section id="projects" class="fade">
+
+<h2>Game Projects</h2>
+
+<div class="project-grid">
+
+<div class="project-card">
+
+<img src="images/game1.png">
+
+<h3>Urip Iku Urup</h3>
+
+<p>VR Horror Game</p>
+
+<button onclick="openModal(
+'Urip Iku Urup',
+'Game VR Horror berbasis filosofi Jawa.',
+'Programmer, Designer',
+'https://google.com'
+)">
+
+Detail
+
+</button>
+
+</div>
+
+<div class="project-card">
+
+<img src="images/game2.png">
+
+<h3>Before Tomorrow</h3>
+
+<p>Game Jam Project</p>
+
+<button onclick="openModal(
+'Before Tomorrow',
+'Game survival dibuat saat game jam.',
+'Programmer',
+'https://google.com'
+)">
+
+Detail
+
+</button>
+
+</div>
+
+<div class="project-card">
+
+<img src="images/game3.png">
+
+<h3>Project 3</h3>
+
+<p>Action Game</p>
+
+<button onclick="openModal(
+'Project 3',
+'Deskripsi lengkap project.',
+'Gameplay Programmer',
+'https://google.com'
+)">
+
+Detail
+
+</button>
+
+</div>
+
+<div class="project-card">
+
+<img src="images/game4.png">
+
+<h3>Project 4</h3>
+
+<p>Adventure</p>
+
+<button onclick="openModal(
+'Project 4',
+'Deskripsi lengkap project.',
+'Designer',
+'https://google.com'
+)">
+
+Detail
+
+</button>
+
+</div>
+
+<div class="project-card">
+
+<img src="images/game5.png">
+
+<h3>Project 5</h3>
+
+<p>Mobile Game</p>
+
+<button onclick="openModal(
+'Project 5',
+'Deskripsi lengkap project.',
+'Unity Developer',
+'https://google.com'
+)">
+
+Detail
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="gallery" class="fade">
+
+<h2>Blender Gallery</h2>
+
+<div class="gallery">
+
+<img src="images/blender1.png">
+<img src="images/blender2.png">
+<img src="images/blender3.png">
+<img src="images/blender4.png">
+
+</div>
+
+</section>
+
+<section id="contact" class="fade">
+
+<h2>Freelance Services</h2>
+
+<div class="service-container">
+
+<div class="service">
+<h3>Unity Development</h3>
+<p>Gameplay, UI, VR, Mobile</p>
+</div>
+
+<div class="service">
+<h3>3D Modeling</h3>
+<p>Character, Props, Environment</p>
+</div>
+
+</div>
+
+<h2>Contact</h2>
+
+<a href="mailto:email@gmail.com" class="contact-btn">Email</a>
+
+<a href="https://instagram.com" class="contact-btn">Instagram</a>
+
+</section>
+
+<div class="modal" id="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeModal()">✖</span>
+
+<h2 id="modalTitle"></h2>
+
+<p id="modalDesc"></p>
+
+<p id="modalRole"></p>
+
+<a id="modalLink" target="_blank">Download</a>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
+```
