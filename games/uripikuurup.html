@@ -6,7 +6,6 @@
   <title>Urip Iku Urup – Detail</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    /* DETAIL PAGE SPECIFIC */
     .detail-hero {
       min-height: 60vh;
       display: flex;
@@ -71,7 +70,6 @@
       opacity: .75;
     }
 
-    /* SCREENSHOT SLIDER */
     .screenshots-section {
       padding: 60px 10% 20px;
     }
@@ -113,7 +111,6 @@
     .screenshot-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .screenshot-placeholder { font-size: 2.5rem; opacity: .3; }
 
-    /* LIGHTBOX */
     .lightbox {
       display: none;
       position: fixed;
@@ -141,7 +138,6 @@
       line-height: 1;
     }
 
-    /* CONTENT GRID */
     .detail-content {
       padding: 20px 10% 80px;
       display: grid;
@@ -180,7 +176,6 @@
     }
     .feature-list li span.icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
 
-    /* SIDEBAR */
     .sidebar {
       display: flex;
       flex-direction: column;
@@ -239,7 +234,6 @@
     }
     .play-btn.secondary:hover { border-color: var(--blue); }
 
-    /* LIGHT MODE */
     body.light .screenshot-item,
     body.light .info-card,
     body.light .feature-list li { background: white; color: #1e293b; }
@@ -273,7 +267,6 @@
   <button id="themeBtn">🌙</button>
 </nav>
 
-<!-- HERO -->
 <div class="detail-hero">
   <div class="detail-hero-bg"></div>
   <div class="detail-hero-content">
@@ -284,7 +277,6 @@
   </div>
 </div>
 
-<!-- SCREENSHOTS -->
 <div class="screenshots-section">
   <h2>Galeri</h2>
   <div class="screenshot-slider-wrap">
@@ -322,16 +314,13 @@
   </div>
 </div>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
   <img id="lightbox-img" src="" alt="Screenshot">
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="detail-content">
 
-  <!-- LEFT: Overview + Features -->
   <div>
     <div class="overview">
       <h2>Game Overview</h2>
@@ -346,30 +335,24 @@
       <h2>Fitur Utama</h2>
       <ul class="feature-list">
         <li>
-          <span class="icon">🥽</span>
           <span>Lilin sebagai sistem nyawa dinamis</span>
         </li>
         <li>
-          <span class="icon">👻</span>
           <span>Dynamic horror AI – entitas yang bereaksi terhadap pergerakan dan suara pemain</span>
         </li>
         <li>
-          <span class="icon">🧩</span>
           <span>Puzzle berbasis budaya Jawa – teka-teki unik yang terinspirasi dari tradisi lokal</span>
         </li>
         <li>
-          <span class="icon">🔊</span>
           <span>Spatial audio – suara 3D yang memperkuat atmosfer seram</span>
         </li>
         <li>
-          <span class="icon">🌙</span>
           <span>Cerita original berlatar malam hari di desa Jawa pedalaman</span>
         </li>
       </ul>
     </div>
   </div>
 
-  <!-- RIGHT: Sidebar -->
   <div class="sidebar">
 
     <div class="info-card">
@@ -403,7 +386,6 @@
 
 <script src="../script.js"></script>
 <script>
-  // SCREENSHOT SLIDER
   const ssSlider = document.querySelector(".screenshot-slider");
   document.querySelector(".ss-next").addEventListener("click", () => {
     ssSlider.scrollBy({ left: 380, behavior: "smooth" });
@@ -412,7 +394,6 @@
     ssSlider.scrollBy({ left: -380, behavior: "smooth" });
   });
 
-  // LIGHTBOX
   function openLightbox(src) {
     document.getElementById("lightbox-img").src = src;
     document.getElementById("lightbox").classList.add("active");
