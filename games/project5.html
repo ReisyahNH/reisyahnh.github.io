@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SWIRMM the Age of fishes – Detail</title>
+  <title>SWIRMM the Age of Fishes – Detail</title>
   <link rel="stylesheet" href="../style.css">
   <style>
     .detail-hero {
@@ -15,7 +15,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .detail-hero-bg {
       position: absolute;
       inset: 0;
@@ -24,12 +23,10 @@
       z-index: 0;
       transform: scale(1.05);
     }
-
     .detail-hero-content {
       position: relative;
       z-index: 1;
     }
-
     .back-btn {
       display: inline-flex;
       align-items: center;
@@ -47,7 +44,7 @@
       display: inline-block;
       padding: 5px 14px;
       border-radius: 20px;
-      background: rgba(142,202,230,.2);
+      background: rgba(167,139,250,.15);
       border: 1px solid var(--blue);
       color: var(--blue);
       font-size: .8rem;
@@ -56,7 +53,6 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-
     .detail-hero h1 {
       font-size: 3.5rem;
       background: linear-gradient(90deg, var(--blue), var(--matcha));
@@ -64,24 +60,11 @@
       -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
     }
+    .detail-hero .subtitle { font-size: 1.1rem; opacity: .75; }
 
-    .detail-hero .subtitle {
-      font-size: 1.1rem;
-      opacity: .75;
-    }
-
-    .screenshots-section {
-      padding: 60px 10% 20px;
-    }
-
+    .screenshots-section { padding: 60px 10% 20px; }
     .screenshots-section h2 { margin-bottom: 20px; }
-
-    .screenshot-slider-wrap {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
+    .screenshot-slider-wrap { display: flex; align-items: center; gap: 15px; }
     .screenshot-slider {
       display: flex;
       gap: 16px;
@@ -92,7 +75,6 @@
       width: 100%;
     }
     .screenshot-slider::-webkit-scrollbar { display: none; }
-
     .screenshot-item {
       min-width: 360px;
       height: 220px;
@@ -102,12 +84,15 @@
       border: 1px solid var(--border);
       cursor: pointer;
       transition: .3s;
-      background: rgba(142,202,230,.06);
+      background: rgba(167,139,250,.06);
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .screenshot-item:hover { transform: scale(1.03); box-shadow: 0 10px 30px rgba(142,202,230,.2); }
+    .screenshot-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(167,139,250,.25);
+    }
     .screenshot-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .screenshot-placeholder { font-size: 2.5rem; opacity: .3; }
 
@@ -139,23 +124,19 @@
     }
 
     .detail-content {
-      padding: 20px 10% 80px;
+      padding: 40px 10% 80px;
       display: grid;
       grid-template-columns: 1fr 340px;
       gap: 40px;
       align-items: start;
     }
-
     .overview h2, .features h2 { margin-bottom: 15px; }
-
     .overview p {
-      line-height: 1.8;
+      line-height: 1.85;
       opacity: .85;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
     }
-
     .features { margin-top: 10px; }
-
     .feature-list {
       list-style: none;
       display: flex;
@@ -174,7 +155,7 @@
       backdrop-filter: blur(10px);
       line-height: 1.5;
     }
-    .feature-list li span.icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+    .feature-list li .icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
 
     .sidebar {
       display: flex;
@@ -183,7 +164,6 @@
       position: sticky;
       top: 110px;
     }
-
     .info-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -216,7 +196,7 @@
       padding: 16px;
       border: none;
       border-radius: 14px;
-      background: linear-gradient(135deg, var(--blue), var(--matcha));
+      background: linear-gradient(135deg, #a78bfa, #d8b4fe);
       color: white;
       font-size: 1rem;
       font-weight: 700;
@@ -225,20 +205,15 @@
       text-decoration: none;
       transition: .3s;
     }
-    .play-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(142,202,230,.35); }
-
-    .play-btn.secondary {
-      background: var(--card);
-      border: 1px solid var(--border);
-      margin-top: 10px;
+    .play-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(167,139,250,.4);
     }
-    .play-btn.secondary:hover { border-color: var(--blue); }
 
     body.light .screenshot-item,
     body.light .info-card,
-    body.light .feature-list li { background: white; color: #1e293b; }
+    body.light .feature-list li { background: white; color: #1e1040; }
     body.light .info-row { border-color: rgba(0,0,0,.08); }
-    body.light .play-btn.secondary { background: white; color: #1e293b; border-color: rgba(0,0,0,.12); }
 
     @media(max-width:900px){
       .detail-content { grid-template-columns: 1fr; }
@@ -271,9 +246,9 @@
   <div class="detail-hero-bg"></div>
   <div class="detail-hero-content">
     <a href="../index.html#projects" class="back-btn">← Back to Projects</a>
-    <div class="game-tag">2.5D PC</div>
-    <h1>SWIRMM the Age of fishes</h1>
-    <p class="subtitle">Unity • PC • 2025</p>
+    <div class="game-tag">2.5D · Casual · Survival</div>
+    <h1>SWIRMM: The Age of Fishes</h1>
+    <p class="subtitle">Unity · PC · 2025</p>
   </div>
 </div>
 
@@ -286,27 +261,27 @@
       <div class="screenshot-item" onclick="openLightbox('../images/ssp51.png')">
         <img src="../images/ssp51.png" alt="Screenshot 1"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="screenshot-placeholder" style="display:none">🎮</span>
+        <span class="screenshot-placeholder" style="display:none">🐟</span>
       </div>
       <div class="screenshot-item" onclick="openLightbox('../images/ssp52.png')">
         <img src="../images/ssp52.png" alt="Screenshot 2"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="screenshot-placeholder" style="display:none">🎮</span>
+        <span class="screenshot-placeholder" style="display:none">🐟</span>
       </div>
       <div class="screenshot-item" onclick="openLightbox('../images/ssp53.png')">
         <img src="../images/ssp53.png" alt="Screenshot 3"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="screenshot-placeholder" style="display:none">🎮</span>
+        <span class="screenshot-placeholder" style="display:none">🐟</span>
       </div>
       <div class="screenshot-item" onclick="openLightbox('../images/ssp54.png')">
         <img src="../images/ssp54.png" alt="Screenshot 4"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="screenshot-placeholder" style="display:none">🎮</span>
+        <span class="screenshot-placeholder" style="display:none">🐟</span>
       </div>
       <div class="screenshot-item" onclick="openLightbox('../images/ssp55.png')">
         <img src="../images/ssp55.png" alt="Screenshot 5"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="screenshot-placeholder" style="display:none">🎮</span>
+        <span class="screenshot-placeholder" style="display:none">🐟</span>
       </div>
 
     </div>
@@ -325,9 +300,18 @@
     <div class="overview">
       <h2>Game Overview</h2>
       <p>
-        "Makan atau Dimakan: Bertahan Hidup di Lautan Purba yang Ganas!"
-         SWIRMM: The Age of Fishes adalah game 2.5D Casual Action-Survival yang dibuat khusus dalam rangka mengikuti kompetisi Game Jam yang diadakan oleh Universitas Politeknik Elektronika Negeri Surabaya (PENS). Mengangkat tema zaman prasejarah, game ini membawa pemain kembali ke jutaan tahun lalu, tepatnya pada era Paleozoikum—sebuah masa di mana lautan dikuasai oleh predator ganas dan evolusi makhluk hidup yang aneh.
-         Dengan mekanik klasik yang adiktif layaknya game legendaris Feeding Frenzy, kamu akan mengendalikan seekor ikan purba kecil yang berada di dasar rantai makanan. Untuk bisa bertahan hidup, kamu harus terus bergerak lincah memangsa ikan-ikan yang lebih kecil darimu agar bisa tumbuh menjadi lebih besar dan kuat. Namun waspadalah, lautan ini penuh dengan ancaman! Kamu harus pintar menghindar dari kejaran predator raksasa yang siap menjadikanmu santapan mereka.
+        <strong>Makan atau Dimakan: Bertahan Hidup di Lautan Purba yang Ganas!</strong>
+      </p>
+      <p>
+        SWIRMM: The Age of Fishes adalah game 2.5D Casual Action-Survival yang dibuat untuk kompetisi
+        Game Jam yang diadakan oleh Politeknik Elektronika Negeri Surabaya (PENS). Mengangkat tema
+        zaman prasejarah, game ini membawa pemain kembali ke jutaan tahun lalu — tepatnya era
+        Paleozoikum, masa di mana lautan dikuasai oleh predator ganas dan makhluk-makhluk purba yang aneh.
+      </p>
+      <p>
+        Dengan mekanik klasik yang adiktif layaknya game legendaris Feeding Frenzy, kamu mengendalikan
+        seekor ikan purba kecil di dasar rantai makanan. Mangsa ikan yang lebih kecil untuk tumbuh,
+        tapi waspadalah dari predator raksasa yang selalu mengintai!
       </p>
     </div>
 
@@ -335,25 +319,27 @@
       <h2>Features</h2>
       <ul class="feature-list">
         <li>
-          <span>Atmosfer Lautan Paleozoikum 2.5D</span>
+          <span class="icon">🌊</span>
+          <span><strong>Atmosfer Lautan Paleozoikum 2.5D</strong> — visual dan environment terinspirasi dari era prasejarah bawah laut</span>
         </li>
         <li>
-          <span>Sistem "Makan atau Dimakan" yang Menegangkan:</span>
+          <span class="icon">🦈</span>
+          <span><strong>Sistem "Makan atau Dimakan"</strong> — mekanik survival yang menegangkan, tumbuh besar dengan memangsa lawan yang lebih kecil</span>
         </li>
         <li>
-          <span>Petualangan Edukatif Dunia Prasejarah:</span>
+          <span class="icon">📚</span>
+          <span><strong>Petualangan Edukatif</strong> — mengenal makhluk-makhluk laut prasejarah lewat gameplay yang seru</span>
         </li>
       </ul>
     </div>
   </div>
 
   <div class="sidebar">
-
     <div class="info-card">
       <h3>Game Info</h3>
       <div class="info-row">
         <span class="label">Genre</span>
-        <span class="value">Edukasi-Survival-Platformer</span>
+        <span class="value">Casual · Survival</span>
       </div>
       <div class="info-row">
         <span class="label">Engine</span>
@@ -368,13 +354,20 @@
         <span class="value">2025</span>
       </div>
       <div class="info-row">
+        <span class="label">Event</span>
+        <span class="value">Game Jam PENS</span>
+      </div>
+      <div class="info-row">
         <span class="label">Role</span>
-        <span class="value">Game Design</span>
+        <span class="value">Game Designer</span>
       </div>
     </div>
 
-    <a href="https://zekromnight7.itch.io/swirrm-the-age-of-fishes" target="_blank" class="play-btn">🎮 Main di Itch.io</a>
+    <a href="https://zekromnight7.itch.io/swirrm-the-age-of-fishes" target="_blank" class="play-btn">
+      🎮 Main di Itch.io
+    </a>
   </div>
+
 </div>
 
 <script src="../script.js"></script>
