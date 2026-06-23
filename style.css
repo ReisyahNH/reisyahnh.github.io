@@ -97,6 +97,7 @@ body.light .timeline-item p{ color:#7c3aed; }
 }
 #themeBtn:hover{ transform:rotate(180deg) scale(1.1); }
 
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -372,11 +373,11 @@ h2{ font-size:2.2rem; margin-bottom:30px; color:#c9b8f0; }
   .hero h1{ font-size:2.2rem; }
   .profile{ width:150px; height:150px; }
 
-  section{ padding:60px 5%; }
+  section{ padding:60px 4%; }
   h2{ font-size:1.8rem; }
 
-  .project-card{ min-width:calc(100vw - 120px); max-width:calc(100vw - 120px); }
-  .gallery-item{ min-width:calc(100vw - 120px); height:200px; }
+  .project-card{ min-width:calc(100vw - 110px); max-width:calc(100vw - 110px); }
+  .gallery-item{ min-width:calc(100vw - 110px); height:200px; }
 
   .slider-btn,
   .gallery-prev,
@@ -387,4 +388,13 @@ h2{ font-size:2.2rem; margin-bottom:30px; color:#c9b8f0; }
   .hero{ padding:280px 15px 60px; }
   .hero h1{ font-size:1.9rem; }
   .nav-links{ font-size:.8rem; gap:8px; }
+}
+
+/* FIX SLIDER MOBILE */
+@media(max-width:768px){
+  .slider-container{ gap:8px; }
+  .project-slider{ padding:10px 0 20px; gap:12px; }
+  .gallery-slider{ padding:10px 0 20px; gap:12px; }
+  .project-card{ min-width:calc(100vw - 100px); max-width:calc(100vw - 100px); }
+  .gallery-item{ min-width:calc(100vw - 100px); }
 }
