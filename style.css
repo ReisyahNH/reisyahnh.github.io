@@ -93,6 +93,7 @@ body.light .timeline-item p{ color:#7c3aed; }
   background:linear-gradient(135deg,#a78bfa,#d8b4fe);
   box-shadow:0 0 20px rgba(167,139,250,.4);
   transition:.4s;
+  flex-shrink:0;
 }
 #themeBtn:hover{ transform:rotate(180deg) scale(1.1); }
 
@@ -104,7 +105,7 @@ body.light .timeline-item p{ color:#7c3aed; }
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:100px 20px;
+  padding:180px 20px 80px;
 }
 .profile{
   width:220px; height:220px;
@@ -345,11 +346,46 @@ h2{ font-size:2.2rem; margin-bottom:30px; color:#c9b8f0; }
 
 /* MOBILE */
 @media(max-width:768px){
-  .navbar{ flex-direction:column; gap:15px; border-radius:30px; }
-  .nav-links{ flex-wrap:wrap; justify-content:center; gap:15px; }
-  .hero h1{ font-size:2.5rem; }
-  .profile{ width:170px; height:170px; }
-  section{ padding:80px 7%; }
-  .project-card{ min-width:280px; max-width:280px; }
-  .gallery-item{ min-width:260px; }
+  /* Navbar jadi horizontal tapi lebih kecil */
+  .navbar{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    padding:12px 15px;
+    border-radius:25px;
+    top:10px;
+    width:95%;
+  }
+  .logo{ width:100%; text-align:center; font-size:1.2rem; }
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    font-size:.85rem;
+  }
+  #themeBtn{ width:40px; height:40px; font-size:16px; }
+
+  /* Hero padding menyesuaikan tinggi navbar mobile */
+  .hero{
+    padding:260px 20px 60px;
+    min-height:100vh;
+  }
+  .hero h1{ font-size:2.2rem; }
+  .profile{ width:150px; height:150px; }
+
+  section{ padding:60px 5%; }
+  h2{ font-size:1.8rem; }
+
+  .project-card{ min-width:260px; max-width:260px; }
+  .gallery-item{ min-width:240px; height:180px; }
+
+  .slider-btn,
+  .gallery-prev,
+  .gallery-next{ width:38px; height:38px; font-size:16px; }
+}
+
+@media(max-width:400px){
+  .hero{ padding:280px 15px 60px; }
+  .hero h1{ font-size:1.9rem; }
+  .nav-links{ font-size:.8rem; gap:8px; }
 }
