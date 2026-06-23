@@ -376,8 +376,8 @@ h2{ font-size:2.2rem; margin-bottom:30px; color:#c9b8f0; }
   section{ padding:60px 5%; }
   h2{ font-size:1.8rem; }
 
-  .project-card{ min-width:260px; max-width:260px; }
-  .gallery-item{ min-width:240px; height:180px; }
+  .project-card{ min-width:calc(100vw - 120px); max-width:calc(100vw - 120px); }
+  .gallery-item{ min-width:calc(100vw - 120px); height:200px; }
 
   .slider-btn,
   .gallery-prev,
