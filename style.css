@@ -39,7 +39,7 @@ body::after{
   z-index:-1;
 }
 
-/* LIGHT MODE */
+
 body.light{ background:#f5f0ff; color:#1e1040; }
 body.light .navbar{ background:rgba(255,255,255,.9); border:1px solid rgba(160,120,255,.15); }
 body.light .nav-links a{ color:#1e1040; }
