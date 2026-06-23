@@ -6,7 +6,6 @@
   <title>Langkah pertamamu di PENS – Detail</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    /* DETAIL PAGE SPECIFIC */
     .detail-hero {
       min-height: 60vh;
       display: flex;
@@ -20,7 +19,7 @@
     .detail-hero-bg {
       position: absolute;
       inset: 0;
-      background: url('../images/game1.png') center/cover no-repeat;
+      background: url('../images/game3.png') center/cover no-repeat;
       filter: brightness(0.3) blur(3px);
       z-index: 0;
       transform: scale(1.05);
@@ -71,7 +70,6 @@
       opacity: .75;
     }
 
-    /* SCREENSHOT SLIDER */
     .screenshots-section {
       padding: 60px 10% 20px;
     }
@@ -113,7 +111,6 @@
     .screenshot-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .screenshot-placeholder { font-size: 2.5rem; opacity: .3; }
 
-    /* LIGHTBOX */
     .lightbox {
       display: none;
       position: fixed;
@@ -141,7 +138,6 @@
       line-height: 1;
     }
 
-    /* CONTENT GRID */
     .detail-content {
       padding: 20px 10% 80px;
       display: grid;
@@ -180,7 +176,6 @@
     }
     .feature-list li span.icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
 
-    /* SIDEBAR */
     .sidebar {
       display: flex;
       flex-direction: column;
@@ -239,7 +234,6 @@
     }
     .play-btn.secondary:hover { border-color: var(--blue); }
 
-    /* LIGHT MODE */
     body.light .screenshot-item,
     body.light .info-card,
     body.light .feature-list li { background: white; color: #1e293b; }
@@ -273,46 +267,44 @@
   <button id="themeBtn">🌙</button>
 </nav>
 
-<!-- HERO -->
 <div class="detail-hero">
   <div class="detail-hero-bg"></div>
   <div class="detail-hero-content">
     <a href="../index.html#projects" class="back-btn">← Back to Projects</a>
-    <div class="game-tag">VR Horror Game</div>
-    <h1>Urip Iku Urup</h1>
-    <p class="subtitle">Unity • VR • 2025</p>
+    <div class="game-tag"> Visual Novel </div>
+    <h1>Langkah Pertamamu di PENS</h1>
+    <p class="subtitle">Unity • Mobile • 2025</p>
   </div>
 </div>
 
-<!-- SCREENSHOTS -->
 <div class="screenshots-section">
   <h2>Screenshots</h2>
   <div class="screenshot-slider-wrap">
     <button class="slider-btn ss-prev">❮</button>
     <div class="screenshot-slider">
 
-      <div class="screenshot-item" onclick="openLightbox('../images/game1.png')">
-        <img src="../images/game1.png" alt="Screenshot 1"
+      <div class="screenshot-item" onclick="openLightbox('../images/ssp31.png')">
+        <img src="../images/ssp31.png" alt="Screenshot 1"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
-      <div class="screenshot-item" onclick="openLightbox('../images/ss2.png')">
-        <img src="../images/ss2.png" alt="Screenshot 2"
+      <div class="screenshot-item" onclick="openLightbox('../images/ssp32.png')">
+        <img src="../images/ssp32.png" alt="Screenshot 2"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
-      <div class="screenshot-item" onclick="openLightbox('../images/ss3.png')">
-        <img src="../images/ss3.png" alt="Screenshot 3"
+      <div class="screenshot-item" onclick="openLightbox('../images/ss33.png')">
+        <img src="../images/ssp33.png" alt="Screenshot 3"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
-      <div class="screenshot-item" onclick="openLightbox('../images/ss4.png')">
-        <img src="../images/ss4.png" alt="Screenshot 4"
+      <div class="screenshot-item" onclick="openLightbox('../images/ssp34.png')">
+        <img src="../images/ssp34.png" alt="Screenshot 4"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
-      <div class="screenshot-item" onclick="openLightbox('../images/ss5.png')">
-        <img src="../images/ss5.png" alt="Screenshot 5"
+      <div class="screenshot-item" onclick="openLightbox('../images/ssp35.png')">
+        <img src="../images/ssp35.png" alt="Screenshot 5"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
@@ -322,24 +314,18 @@
   </div>
 </div>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
   <img id="lightbox-img" src="" alt="Screenshot">
 </div>
 
-<!-- MAIN CONTENT -->
 <div class="detail-content">
 
-  <!-- LEFT: Overview + Features -->
   <div>
     <div class="overview">
       <h2>Game Overview</h2>
       <p>
-        Urip Iku Urup adalah game horror VR yang terinspirasi dari budaya dan kepercayaan Jawa.
-        Pemain akan menjelajahi rumah tua yang penuh misteri, memecahkan teka-teki, dan menghadapi
-        entitas supernatural. Game ini dikembangkan menggunakan Unity dengan dukungan VR penuh,
-        memberikan pengalaman immersive yang mendebarkan.
+          Game visaal novel Langkah Pertamamu di PENS adalah game yang saya buat sewaktu melakukan prakter kerja lapangan di Universitas Politeknik Elektronika Negeri Surabaya pada Departemen Teknologi Multimedia Kreatif(DTMK). Game ini adalah 2D visuaal noevl yang bercerita tentang pengenalan kampus PENS kepada mahasiswa baru. Terdapat beberapa pilihan dialog dan juga mini game. Game ini dibuat dengan tujuan mempermudah mahasiswa baru mengenal kampus PENS. 
       </p>
     </div>
 
@@ -347,37 +333,30 @@
       <h2>Features</h2>
       <ul class="feature-list">
         <li>
-          <span class="icon">🥽</span>
-          <span>Full VR support – mendukung headset VR populer untuk pengalaman imersif penuh</span>
+          <span></span>
         </li>
         <li>
-          <span class="icon">👻</span>
-          <span>Dynamic horror AI – entitas yang bereaksi terhadap pergerakan dan suara pemain</span>
+          <span>Simulasi Tur Kampus Virtual PENS</span>
         </li>
         <li>
-          <span class="icon">🧩</span>
-          <span>Puzzle berbasis budaya Jawa – teka-teki unik yang terinspirasi dari tradisi lokal</span>
+          <span>Mini Game Interaktif Bertema Perkuliahan</span>
         </li>
         <li>
-          <span class="icon">🔊</span>
-          <span>Spatial audio – suara 3D yang memperkuat atmosfer seram</span>
+          <span>Sistem Pengenalan Jurusan dan Budaya di PENS</span>
         </li>
         <li>
-          <span class="icon">🌙</span>
-          <span>Cerita original berlatar malam hari di desa Jawa pedalaman</span>
+          <span>Sistem Pilihan Dialog</span>
         </li>
       </ul>
     </div>
   </div>
-
-  <!-- RIGHT: Sidebar -->
   <div class="sidebar">
 
     <div class="info-card">
       <h3>Game Info</h3>
       <div class="info-row">
         <span class="label">Genre</span>
-        <span class="value">VR Horror</span>
+        <span class="value">Edukasi</span>
       </div>
       <div class="info-row">
         <span class="label">Engine</span>
@@ -385,7 +364,7 @@
       </div>
       <div class="info-row">
         <span class="label">Platform</span>
-        <span class="value">PC VR</span>
+        <span class="value"> Mobile </span>
       </div>
       <div class="info-row">
         <span class="label">Tahun</span>
@@ -393,17 +372,14 @@
       </div>
       <div class="info-row">
         <span class="label">Role</span>
-        <span class="value">Lead Developer</span>
+        <span class="value">Game Artist</span>
       </div>
     </div>
-
-    <a href="https://reisyahnh.itch.io/before-tomorrow" target="_blank" class="play-btn">🎮 Main di Itch.io</a>
   </div>
 </div>
 
 <script src="../script.js"></script>
 <script>
-  // SCREENSHOT SLIDER
   const ssSlider = document.querySelector(".screenshot-slider");
   document.querySelector(".ss-next").addEventListener("click", () => {
     ssSlider.scrollBy({ left: 380, behavior: "smooth" });
@@ -412,7 +388,6 @@
     ssSlider.scrollBy({ left: -380, behavior: "smooth" });
   });
 
-  // LIGHTBOX
   function openLightbox(src) {
     document.getElementById("lightbox-img").src = src;
     document.getElementById("lightbox").classList.add("active");
