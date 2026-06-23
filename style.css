@@ -142,11 +142,11 @@ body.light .timeline-item p{ color:#7c3aed; }
 }
 .btn:hover{ transform:translateY(-5px); box-shadow:0 10px 25px rgba(167,139,250,.4); }
 
-/* SECTION */
+
 section{ padding:100px 10%; }
 h2{ font-size:2.2rem; margin-bottom:30px; color:#c9b8f0; }
 
-/* SKILLS */
+
 .skills{ display:flex; flex-wrap:wrap; gap:15px; margin-bottom:30px; }
 .skill{
   background:var(--card);
@@ -158,7 +158,7 @@ h2{ font-size:2.2rem; margin-bottom:30px; color:#c9b8f0; }
 }
 .skill:hover{ transform:translateY(-5px); box-shadow:0 8px 20px rgba(167,139,250,.2); }
 
-/* TIMELINE */
+
 .timeline{ border-left:3px solid #a78bfa; padding-left:30px; }
 .timeline-item{
   background:var(--card);
