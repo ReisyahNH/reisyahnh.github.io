@@ -97,7 +97,6 @@ body.light .timeline-item p{ color:#7c3aed; }
 }
 #themeBtn:hover{ transform:rotate(180deg) scale(1.1); }
 
-/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
