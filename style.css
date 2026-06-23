@@ -51,7 +51,7 @@ body.light .timeline-item{ background:white; color:#1e1040; }
 body.light .project-card p{ color:#6d28d9; }
 body.light .timeline-item p{ color:#7c3aed; }
 
-/* NAVBAR */
+
 .navbar{
   position:fixed;
   top:20px; left:50%;
