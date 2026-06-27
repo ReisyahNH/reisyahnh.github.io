@@ -15,7 +15,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .detail-hero-bg {
       position: absolute;
       inset: 0;
@@ -24,12 +23,7 @@
       z-index: 0;
       transform: scale(1.05);
     }
-
-    .detail-hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
+    .detail-hero-content { position: relative; z-index: 1; }
     .back-btn {
       display: inline-flex;
       align-items: center;
@@ -42,7 +36,6 @@
       font-size: .95rem;
     }
     .back-btn:hover { transform: translateX(-5px); color: var(--matcha); }
-
     .game-tag {
       display: inline-block;
       padding: 5px 14px;
@@ -56,7 +49,6 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-
     .detail-hero h1 {
       font-size: 3.5rem;
       background: linear-gradient(90deg, var(--blue), var(--matcha));
@@ -64,24 +56,11 @@
       -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
     }
+    .detail-hero .subtitle { font-size: 1.1rem; opacity: .75; }
 
-    .detail-hero .subtitle {
-      font-size: 1.1rem;
-      opacity: .75;
-    }
-
-    .screenshots-section {
-      padding: 60px 10% 20px;
-    }
-
+    .screenshots-section { padding: 60px 10% 20px; }
     .screenshots-section h2 { margin-bottom: 20px; }
-
-    .screenshot-slider-wrap {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
+    .screenshot-slider-wrap { display: flex; align-items: center; gap: 15px; }
     .screenshot-slider {
       display: flex;
       gap: 16px;
@@ -92,7 +71,6 @@
       width: 100%;
     }
     .screenshot-slider::-webkit-scrollbar { display: none; }
-
     .screenshot-item {
       min-width: 360px;
       height: 220px;
@@ -111,7 +89,21 @@
     .screenshot-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .screenshot-placeholder { font-size: 2.5rem; opacity: .3; }
 
-    /* LIGHTBOX */
+    /* Tombol slider screenshot */
+    .ss-btn {
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      background: linear-gradient(135deg, #a78bfa, #d8b4fe);
+      color: white;
+      flex-shrink: 0;
+      transition: .3s;
+    }
+    .ss-btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(167,139,250,.5); }
+
     .lightbox {
       display: none;
       position: fixed;
@@ -122,12 +114,7 @@
       align-items: center;
     }
     .lightbox.active { display: flex; }
-    .lightbox img {
-      max-width: 90vw;
-      max-height: 85vh;
-      border-radius: 12px;
-      object-fit: contain;
-    }
+    .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 12px; object-fit: contain; }
     .lightbox-close {
       position: absolute;
       top: 20px; right: 30px;
@@ -146,17 +133,9 @@
       gap: 40px;
       align-items: start;
     }
-
     .overview h2, .features h2 { margin-bottom: 15px; }
-
-    .overview p {
-      line-height: 1.8;
-      opacity: .85;
-      margin-bottom: 30px;
-    }
-
+    .overview p { line-height: 1.8; opacity: .85; margin-bottom: 30px; }
     .features { margin-top: 10px; }
-
     .feature-list {
       list-style: none;
       display: flex;
@@ -175,16 +154,7 @@
       backdrop-filter: blur(10px);
       line-height: 1.5;
     }
-    .feature-list li span.icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
-
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      position: sticky;
-      top: 110px;
-    }
-
+    .sidebar { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 110px; }
     .info-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -192,13 +162,7 @@
       padding: 24px;
       backdrop-filter: blur(10px);
     }
-    .info-card h3 {
-      color: var(--blue);
-      margin-bottom: 16px;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    .info-card h3 { color: var(--blue); margin-bottom: 16px; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
     .info-row {
       display: flex;
       justify-content: space-between;
@@ -210,7 +174,6 @@
     .info-row:last-child { border-bottom: none; }
     .info-row .label { opacity: .6; }
     .info-row .value { font-weight: 600; }
-
     .play-btn {
       display: block;
       width: 100%;
@@ -228,18 +191,10 @@
     }
     .play-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(142,202,230,.35); }
 
-    .play-btn.secondary {
-      background: var(--card);
-      border: 1px solid var(--border);
-      margin-top: 10px;
-    }
-    .play-btn.secondary:hover { border-color: var(--blue); }
-
     body.light .screenshot-item,
     body.light .info-card,
     body.light .feature-list li { background: white; color: #1e293b; }
     body.light .info-row { border-color: rgba(0,0,0,.08); }
-    body.light .play-btn.secondary { background: white; color: #1e293b; border-color: rgba(0,0,0,.12); }
 
     @media(max-width:900px){
       .detail-content { grid-template-columns: 1fr; }
@@ -250,6 +205,7 @@
     @media(max-width:600px){
       .detail-hero { padding: 120px 7% 50px; }
       .screenshots-section, .detail-content { padding-left: 7%; padding-right: 7%; }
+      .ss-btn { width: 38px; height: 38px; font-size: 16px; }
     }
   </style>
 </head>
@@ -281,9 +237,8 @@
 <div class="screenshots-section">
   <h2>Galeri</h2>
   <div class="screenshot-slider-wrap">
-    <button class="slider-btn ss-prev">❮</button>
+    <button class="ss-btn ss-prev">❮</button>
     <div class="screenshot-slider">
-
       <div class="screenshot-item" onclick="openLightbox('../images/ssp21.jpeg')">
         <img src="../images/ssp21.jpeg" alt="Screenshot 1"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
@@ -309,9 +264,8 @@
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
-
     </div>
-    <button class="slider-btn ss-next">❯</button>
+    <button class="ss-btn ss-next">❯</button>
   </div>
 </div>
 
@@ -321,62 +275,35 @@
 </div>
 
 <div class="detail-content">
-
   <div>
     <div class="overview">
       <h2>Game Overview</h2>
       <p>
         Before Tomorrow adalah Narrative Psychological Puzzle berselimut visual 3D Chibi Stylized yang menampar realita manusia modern. Ini bukan sekadar game teka-teki, melainkan sebuah manifestasi visual dari burnout, depresi fungsional, dan hilangnya warna hidup akibat rutinitas yang robotik.
-        Kamu adalah robot bernyawa dalam siklus: bangun, kerja, tidur, ulang. Sampai akhirnya, takdir membawamu tersesat ke sebuah lorong surreal penuh pintu waktu. Setiap pintu adalah ruang isolasi emosimu sendiri ada taman bermain masa kecil yang kini sunyi, ada labirin jam dinding dari ekspektasi yang mencekik, dan ada cermin retak yang menyuarakan ketakutan terbesarmu.
-        Dengan memanipulasi objek dan menyelesaikan environmental puzzle di tiap ruangan, kamu tidak hanya mencari jalan keluar, tapi sedang memungut kembali kepingan jiwamu yang tercecer. Disajikan dengan estetika visual yang kontras karakter yang imut di tengah dunia yang melankolis, Before Tomorrow adalah sebuah perjalanan kontemplatif. Karena sebelum hari esok yang monoton itu datang lagi, kamu harus menyelamatkan dirimu yang sekarang.
+        Kamu adalah robot bernyawa dalam siklus: bangun, kerja, tidur, ulang. Sampai akhirnya, takdir membawamu tersesat ke sebuah lorong surreal penuh pintu waktu. Setiap pintu adalah ruang isolasi emosimu sendiri — ada taman bermain masa kecil yang kini sunyi, ada labirin jam dinding dari ekspektasi yang mencekik, dan ada cermin retak yang menyuarakan ketakutan terbesarmu.
+        Dengan memanipulasi objek dan menyelesaikan environmental puzzle di tiap ruangan, kamu tidak hanya mencari jalan keluar, tapi sedang memungut kembali kepingan jiwamu yang tercecer. Disajikan dengan estetika visual yang kontras — karakter yang imut di tengah dunia yang melankolis — Before Tomorrow adalah sebuah perjalanan kontemplatif.
       </p>
     </div>
-
     <div class="features">
       <h2>Features</h2>
       <ul class="feature-list">
-        <li>
-          <span>Emotional Environmental Puzzles</span>
-        </li>
-        <li>
-          <span>Estetika Visual "Kontras Melankolis" (Chibi Stylized)</span>
-        </li>
-        <li>
-          <span>Lorong Pintu Waktu Ruang Isolasi (Eksplorasi Naratif)</span>
-        </li>
-        <li>
-          <span>Simulasi Siklus Rutinitas Robotik</span>
-        </li>
+        <li><span>Emotional Environmental Puzzles</span></li>
+        <li><span>Estetika Visual "Kontras Melankolis" (Chibi Stylized)</span></li>
+        <li><span>Lorong Pintu Waktu Ruang Isolasi (Eksplorasi Naratif)</span></li>
+        <li><span>Simulasi Siklus Rutinitas Robotik</span></li>
       </ul>
     </div>
   </div>
 
   <div class="sidebar">
-
     <div class="info-card">
       <h3>Game Info</h3>
-      <div class="info-row">
-        <span class="label">Tema game</span>
-        <span class="value">Ruang dan Waktu</span>
-      </div>
-      <div class="info-row">
-        <span class="label">Engine</span>
-        <span class="value">Unity</span>
-      </div>
-      <div class="info-row">
-        <span class="label">Platform</span>
-        <span class="value">PC </span>
-      </div>
-      <div class="info-row">
-        <span class="label">Tahun</span>
-        <span class="value">2026</span>
-      </div>
-      <div class="info-row">
-        <span class="label">Role</span>
-        <span class="value">Designer & Artist</span>
-      </div>
+      <div class="info-row"><span class="label">Tema game</span><span class="value">Ruang dan Waktu</span></div>
+      <div class="info-row"><span class="label">Engine</span><span class="value">Unity</span></div>
+      <div class="info-row"><span class="label">Platform</span><span class="value">PC</span></div>
+      <div class="info-row"><span class="label">Tahun</span><span class="value">2026</span></div>
+      <div class="info-row"><span class="label">Role</span><span class="value">Designer & Artist</span></div>
     </div>
-
     <a href="https://reisyahnh.itch.io/before-tomorrow" target="_blank" class="play-btn">🎮 Main di Itch.io</a>
   </div>
 </div>
