@@ -15,7 +15,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .detail-hero-bg {
       position: absolute;
       inset: 0;
@@ -24,12 +23,10 @@
       z-index: 0;
       transform: scale(1.05);
     }
-
     .detail-hero-content {
       position: relative;
       z-index: 1;
     }
-
     .back-btn {
       display: inline-flex;
       align-items: center;
@@ -42,7 +39,6 @@
       font-size: .95rem;
     }
     .back-btn:hover { transform: translateX(-5px); color: var(--matcha); }
-
     .game-tag {
       display: inline-block;
       padding: 5px 14px;
@@ -56,7 +52,6 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-
     .detail-hero h1 {
       font-size: 3.5rem;
       background: linear-gradient(90deg, var(--blue), var(--matcha));
@@ -64,24 +59,15 @@
       -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
     }
+    .detail-hero .subtitle { font-size: 1.1rem; opacity: .75; }
 
-    .detail-hero .subtitle {
-      font-size: 1.1rem;
-      opacity: .75;
-    }
-
-    .screenshots-section {
-      padding: 60px 10% 20px;
-    }
-
+    .screenshots-section { padding: 60px 10% 20px; }
     .screenshots-section h2 { margin-bottom: 20px; }
-
     .screenshot-slider-wrap {
       display: flex;
       align-items: center;
       gap: 15px;
     }
-
     .screenshot-slider {
       display: flex;
       gap: 16px;
@@ -92,7 +78,6 @@
       width: 100%;
     }
     .screenshot-slider::-webkit-scrollbar { display: none; }
-
     .screenshot-item {
       min-width: 360px;
       height: 220px;
@@ -110,6 +95,24 @@
     .screenshot-item:hover { transform: scale(1.03); box-shadow: 0 10px 30px rgba(167,139,250,.2); }
     .screenshot-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .screenshot-placeholder { font-size: 2.5rem; opacity: .3; }
+
+    /* Tombol slider screenshot — didefinisikan di sini agar tidak bergantung pada style.css */
+    .ss-btn {
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      background: linear-gradient(135deg, #a78bfa, #d8b4fe);
+      color: white;
+      flex-shrink: 0;
+      transition: .3s;
+    }
+    .ss-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(167,139,250,.5);
+    }
 
     .lightbox {
       display: none;
@@ -145,17 +148,9 @@
       gap: 40px;
       align-items: start;
     }
-
     .overview h2, .features h2 { margin-bottom: 15px; }
-
-    .overview p {
-      line-height: 1.8;
-      opacity: .85;
-      margin-bottom: 30px;
-    }
-
+    .overview p { line-height: 1.8; opacity: .85; margin-bottom: 30px; }
     .features { margin-top: 10px; }
-
     .feature-list {
       list-style: none;
       display: flex;
@@ -174,8 +169,6 @@
       backdrop-filter: blur(10px);
       line-height: 1.5;
     }
-    .feature-list li span.icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
-
     .sidebar {
       display: flex;
       flex-direction: column;
@@ -183,7 +176,6 @@
       position: sticky;
       top: 110px;
     }
-
     .info-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -209,7 +201,6 @@
     .info-row:last-child { border-bottom: none; }
     .info-row .label { opacity: .6; }
     .info-row .value { font-weight: 600; }
-
     .play-btn {
       display: block;
       width: 100%;
@@ -226,7 +217,6 @@
       transition: .3s;
     }
     .play-btn:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(167,139,250,.35); }
-
     .play-btn.secondary {
       background: var(--card);
       border: 1px solid var(--border);
@@ -249,6 +239,7 @@
     @media(max-width:600px){
       .detail-hero { padding: 120px 7% 50px; }
       .screenshots-section, .detail-content { padding-left: 7%; padding-right: 7%; }
+      .ss-btn { width: 38px; height: 38px; font-size: 16px; }
     }
   </style>
 </head>
@@ -280,37 +271,35 @@
 <div class="screenshots-section">
   <h2>Galeri</h2>
   <div class="screenshot-slider-wrap">
-    <button class="slider-btn ss-prev">❮</button>
+    <button class="ss-btn ss-prev">❮</button>
     <div class="screenshot-slider">
-
-      <div class="screenshot-item" onclick="openLightbox('../images/game1.png')">
+      <div class="screenshot-item" onclick="openLightbox('../images/ssp1.png')">
         <img src="../images/ssp1.png" alt="Screenshot 1"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
-      <div class="screenshot-item" onclick="openLightbox('../images/ss2.png')">
+      <div class="screenshot-item" onclick="openLightbox('../images/ssp2.png')">
         <img src="../images/ssp2.png" alt="Screenshot 2"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
-      <div class="screenshot-item" onclick="openLightbox('../images/ss3.png')">
+      <div class="screenshot-item" onclick="openLightbox('../images/ssp3.png')">
         <img src="../images/ssp3.png" alt="Screenshot 3"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
-      <div class="screenshot-item" onclick="openLightbox('../images/ss4.png')">
+      <div class="screenshot-item" onclick="openLightbox('../images/ssp4.png')">
         <img src="../images/ssp4.png" alt="Screenshot 4"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
-      <div class="screenshot-item" onclick="openLightbox('../images/ss5.png')">
+      <div class="screenshot-item" onclick="openLightbox('../images/ssp5.png')">
         <img src="../images/ssp5.png" alt="Screenshot 5"
           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span class="screenshot-placeholder" style="display:none">🎮</span>
       </div>
-
     </div>
-    <button class="slider-btn ss-next">❯</button>
+    <button class="ss-btn ss-next">❯</button>
   </div>
 </div>
 
@@ -320,41 +309,28 @@
 </div>
 
 <div class="detail-content">
-
   <div>
     <div class="overview">
       <h2>Game Overview</h2>
       <p>
-       Urip Iku Urup adalah game Virtual Reality (VR) horror-survival yang mengangkat filosofi luhur Jawa ke dalam pengalaman digital yang mencekam. Di dunia yang terjajah oleh kegelapan, kamu tidak hanya berjuang untuk bertahan hidup, tetapi juga berjuang untuk menjaga esensi jati dirimu yang direpresentasikan melalui sebatang lilin.
-       Dalam perjalanan ini, kamu akan menjelajahi atmosfer pedesaan Nusantara yang penuh misteri, menghadapi manifestasi ketakutan manusia, dan menguji sejauh mana keberanianmu untuk tetap menyala di tengah penindasan mental.
-      "Apakah kamu memiliki keberanian untuk menjaga api impianmu tetap berkobar, ataukah kamu akan membiarkan kegelapan mengubahmu menjadi budak ketakutan?"
+        Urip Iku Urup adalah game Virtual Reality (VR) horror-survival yang mengangkat filosofi luhur Jawa ke dalam pengalaman digital yang mencekam. Di dunia yang terjajah oleh kegelapan, kamu tidak hanya berjuang untuk bertahan hidup, tetapi juga berjuang untuk menjaga esensi jati dirimu yang direpresentasikan melalui sebatang lilin.
+        Dalam perjalanan ini, kamu akan menjelajahi atmosfer pedesaan Nusantara yang penuh misteri, menghadapi manifestasi ketakutan manusia, dan menguji sejauh mana keberanianmu untuk tetap menyala di tengah penindasan mental.
+        "Apakah kamu memiliki keberanian untuk menjaga api impianmu tetap berkobar, ataukah kamu akan membiarkan kegelapan mengubahmu menjadi budak ketakutan?"
       </p>
     </div>
-
     <div class="features">
       <h2>Fitur Utama</h2>
       <ul class="feature-list">
-        <li>
-          <span>Lilin sebagai sistem nyawa dinamis</span>
-        </li>
-        <li>
-          <span>Dynamic horror AI – entitas yang bereaksi terhadap pergerakan dan suara pemain</span>
-        </li>
-        <li>
-          <span>Puzzle berbasis budaya Jawa – teka-teki unik yang terinspirasi dari tradisi lokal</span>
-        </li>
-        <li>
-          <span>Spatial audio – suara 3D yang memperkuat atmosfer seram</span>
-        </li>
-        <li>
-          <span>Cerita original berlatar malam hari di desa Jawa pedalaman</span>
-        </li>
+        <li><span>Lilin sebagai sistem nyawa dinamis</span></li>
+        <li><span>Dynamic horror AI – entitas yang bereaksi terhadap pergerakan dan suara pemain</span></li>
+        <li><span>Puzzle berbasis budaya Jawa – teka-teki unik yang terinspirasi dari tradisi lokal</span></li>
+        <li><span>Spatial audio – suara 3D yang memperkuat atmosfer seram</span></li>
+        <li><span>Cerita original berlatar malam hari di desa Jawa pedalaman</span></li>
       </ul>
     </div>
   </div>
 
   <div class="sidebar">
-
     <div class="info-card">
       <h3>Game Info</h3>
       <div class="info-row">
@@ -378,9 +354,7 @@
         <span class="value">Solo Game Developer</span>
       </div>
     </div>
-    
     <a href="https://pplgrolas.my.id/0079847842/" target="_blank" class="play-btn secondary">🌐 Website Game</a>
-
   </div>
 </div>
 
